@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009688"
+    tools:context=".ui.settings.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingTop="50dp"
+        android:paddingRight="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="@string/settingsFixedText"
+            android:textColor="@android:color/black"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="#00BCD4"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/teamsNumberFixedText"
+                android:textSize="25sp" />
+
+            <Spinner
+                android:id="@+id/sTeamNumber"
+                style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="#00BCD4"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/timeFixedText"
+                android:textSize="25sp" />
+
+            <Spinner
+                android:id="@+id/sTime"
+                style="@style/Widget.AppCompat.Spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="#00BCD4"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/roundNumberFixedText"
+                android:textSize="25sp" />
+
+            <Spinner
+                android:id="@+id/sRoundNumber"
+                style="@style/Widget.AppCompat.Spinner.DropDown"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="#00BCD4"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/passNumberFixedText"
+                android:textSize="25sp" />
+
+            <Spinner
+                android:id="@+id/sPassNumber"
+                style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ayarlar_button"
+            android:text="@string/save"
+            android:textColor="#000000"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

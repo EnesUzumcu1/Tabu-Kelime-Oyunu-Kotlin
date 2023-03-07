@@ -1,10 +1,10 @@
 package com.enesuzumcu.tabu.data.model
 
 data class Settings(
-    private var time: Int,
-    private val teamCount: Int,
-    private val round: Int,
-    private val pass: Int
+    var time: Int,
+    var teamCount: Int,
+    var round: Int,
+    var pass: Int
 ) {
     companion object {
         var settings: Settings? = null

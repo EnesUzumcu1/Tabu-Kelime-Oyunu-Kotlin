@@ -1,8 +1,8 @@
 package com.enesuzumcu.tabu.data.model
 
 data class Teams(
-    private var teamName : String,
-    private var teamScore: Int
+    var teamName : String,
+    var teamScore: Int
 ) {
     companion object{
         var team1 : Teams? = null

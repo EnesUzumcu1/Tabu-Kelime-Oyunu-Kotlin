@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEB3B"
+    tools:context=".ui.game.GameFragment">
+
+    <LinearLayout
+        android:id="@+id/llWords"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/llButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pasPuanLayout">
+
+        <TextView
+            android:id="@+id/tvTargetWord"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:background="@drawable/linear_layout_custom2"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="45sp"
+            android:textStyle="bold"
+            tools:text="Anlatilan Kelime" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/linear_layout_custom3"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTabooWord1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                tools:text="tabu1" />
+
+            <TextView
+                android:id="@+id/tvTabooWord2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                tools:text="tabu2" />
+
+            <TextView
+                android:id="@+id/tvTabooWord3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                tools:text="tabu3" />
+
+            <TextView
+                android:id="@+id/tvTabooWord4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                tools:text="tabu4" />
+
+            <TextView
+                android:id="@+id/tvTabooWord5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                tools:text="tabu5" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llButtons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/pas_button"
+            android:text="@string/passFixedText"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnTaboo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tabu_button"
+            android:text="@string/tabooFixedText"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnSuccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/dogru_button"
+            android:text="@string/successFixedText"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/takimSaniyeLayout"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/takimAdiYazTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            tools:text="Takım 1" />
+
+        <TextView
+            android:id="@+id/saniyeTxtView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="end"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            tools:text="Saniye" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pasPuanLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takimSaniyeLayout">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/linear_layout_custom4"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/scoreFixedText"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/puanTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:text="Puan :" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/linear_layout_custom5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/remainingPassFixedText"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pasHakkiTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:text="Kalan Pas Hakkı : " />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llResult"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/llButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pasPuanLayout">
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="120dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/giris_button"
+            android:text="@string/startFixedText"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/teamsNameFixedText"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/scoreFixedText"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/takim1BilgiLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/linear_layout_custom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTeamName1"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:text="TakimAdi1" />
+
+            <TextView
+                android:id="@+id/tvTeamScore1"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                tools:text="TakimPuani1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/takim2BilgiLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/linear_layout_custom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTeamName2"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:text="TakimAdi2" />
+
+            <TextView
+                android:id="@+id/tvTeamScore2"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                tools:text="TakimPuani2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/takim3BilgiLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/linear_layout_custom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTeamName3"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:text="TakimAdi3" />
+
+            <TextView
+                android:id="@+id/tvTeamScore3"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                tools:text="TakimPuan3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/takim4BilgiLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/linear_layout_custom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTeamName4"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:text="TakimAdi4" />
+
+            <TextView
+                android:id="@+id/tvTeamScore4"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                tools:text="TakimPuani4" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvWinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            tools:text="Winner" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

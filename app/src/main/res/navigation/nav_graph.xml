@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.enesuzumcu.tabu.ui.game.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.enesuzumcu.tabu.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_setTeamNameFragment"
+            app:destination="@id/setTeamNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.enesuzumcu.tabu.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_setTeamNameFragment"
+            app:destination="@id/setTeamNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setTeamNameFragment"
+        android:name="com.enesuzumcu.tabu.ui.setteamname.SetTeamNameFragment"
+        android:label="fragment_set_team_name"
+        tools:layout="@layout/fragment_set_team_name" >
+        <action
+            android:id="@+id/action_setTeamNameFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+</navigation>
