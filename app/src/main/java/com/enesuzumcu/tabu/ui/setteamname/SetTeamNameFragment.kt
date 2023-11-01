@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SetTeamNameFragment : Fragment() {
-    private lateinit var binding :FragmentSetTeamNameBinding
+    private lateinit var binding: FragmentSetTeamNameBinding
     private lateinit var navController: NavController
     private val viewModel by viewModels<SetTeamNameViewModel>()
 
@@ -27,7 +27,7 @@ class SetTeamNameFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSetTeamNameBinding.inflate(inflater,container,false)
+        binding = FragmentSetTeamNameBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -58,15 +58,32 @@ class SetTeamNameFragment : Fragment() {
             navController.navigate(R.id.action_setTeamNameFragment_to_gameFragment)
         }
 
+        binding.toolbar.title.text = getString(R.string.setTeamNameFixedText)
+
+        binding.toolbar.ivBackArrow.setOnClickListener {
+            backPressNavigate()
+        }
+
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    // Handle the back button event
-                    val options: NavOptions = NavOptions.Builder().setPopUpTo(R.id.nav_graph, true).build()
-                    navController.navigate(R.id.homeFragment, null, options)
+                    backPressNavigate()
                 }
             })
+    }
+
+    private fun backPressNavigate(){
+        // Handle the back button event
+        val options: NavOptions =
+            NavOptions.Builder()
+                .setEnterAnim(R.anim.slide_from_left)
+                .setExitAnim(R.anim.slide_to_right)
+                .setPopEnterAnim(R.anim.slide_from_left)
+                .setPopExitAnim(R.anim.slide_to_right)
+                .setPopUpTo(R.id.nav_graph, true)
+                .build()
+        navController.navigate(R.id.homeFragment, null, options)
     }
 
     private fun tanimlamalar() {

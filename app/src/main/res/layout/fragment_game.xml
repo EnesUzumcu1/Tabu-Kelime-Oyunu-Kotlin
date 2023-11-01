@@ -4,252 +4,234 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEB3B"
     tools:context=".ui.game.GameFragment">
 
-    <LinearLayout
-        android:id="@+id/llWords"
-        android:layout_width="0dp"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvWords"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/llButtons"
+        app:cardBackgroundColor="#BFFFFFFF"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/clButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pasPuanLayout">
-
-        <TextView
-            android:id="@+id/tvTargetWord"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:background="@drawable/linear_layout_custom2"
-            android:gravity="center"
-            android:textColor="@android:color/black"
-            android:textSize="45sp"
-            android:textStyle="bold"
-            tools:text="Anlatilan Kelime" />
+        app:layout_constraintTop_toBottomOf="@+id/cvInformation">
 
         <LinearLayout
+            android:id="@+id/llWords"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/linear_layout_custom3"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <TextView
-                android:id="@+id/tvTabooWord1"
+                android:id="@+id/tvTargetWord"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_height="125dp"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="22sp"
-                tools:text="tabu1" />
+                android:textColor="@android:color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                tools:text="Anlatilan Kelime" />
 
-            <TextView
-                android:id="@+id/tvTabooWord2"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="22sp"
-                tools:text="tabu2" />
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvTabooWord3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="22sp"
-                tools:text="tabu3" />
+                <TextView
+                    android:id="@+id/tvTabooWord1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    tools:text="tabu1" />
 
-            <TextView
-                android:id="@+id/tvTabooWord4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="22sp"
-                tools:text="tabu4" />
+                <TextView
+                    android:id="@+id/tvTabooWord2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    tools:text="tabu2" />
 
-            <TextView
-                android:id="@+id/tvTabooWord5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="22sp"
-                tools:text="tabu5" />
+                <TextView
+                    android:id="@+id/tvTabooWord3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    tools:text="tabu3" />
+
+                <TextView
+                    android:id="@+id/tvTabooWord4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    tools:text="tabu4" />
+
+                <TextView
+                    android:id="@+id/tvTabooWord5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    tools:text="tabu5" />
+            </LinearLayout>
+
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llButtons"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clButtons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:paddingHorizontal="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnPass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/pas_button"
-            android:text="@string/passFixedText"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/round_btn_pass"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_round_pass"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnTaboo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/tabu_button"
-            android:text="@string/tabooFixedText"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/round_btn_wrong"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_round_wrong"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnSuccess"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/round_btn_correct"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_round_correct"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pasHakkiTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/dogru_button"
-            android:text="@string/successFixedText"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/btnPass"
+            app:layout_constraintStart_toStartOf="@id/btnPass"
+            app:layout_constraintTop_toBottomOf="@id/btnPass"
+            tools:text="X/X" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/takimSaniyeLayout"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:orientation="horizontal"
-        android:visibility="visible"
+        app:cardBackgroundColor="#BFFFFFFF"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/takimAdiYazTextView"
-            android:layout_width="fill_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@android:color/black"
-            android:textSize="25sp"
-            tools:text="Takım 1" />
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/saniyeTxtView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="end"
-            android:textColor="@android:color/black"
-            android:textSize="25sp"
-            tools:text="Saniye" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/pasPuanLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:baselineAligned="false"
-        android:orientation="horizontal"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/takimSaniyeLayout">
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/linear_layout_custom4"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
+            <ProgressBar
+                android:id="@+id/pbSecond"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/scoreFixedText"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSecond" />
 
             <TextView
-                android:id="@+id/puanTextView"
+                android:id="@+id/tvSecond"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Saniye" />
+
+
+            <TextView
+                android:id="@+id/tvTeamName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/tvScore"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pbSecond"
+                tools:text="Takım 1" />
+
+            <TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pbSecond"
                 tools:text="Puan :" />
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/linear_layout_custom5"
-            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/remainingPassFixedText"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/pasHakkiTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                tools:text="Kalan Pas Hakkı : " />
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:id="@+id/llResult"
@@ -260,20 +242,10 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/llButtons"
+        app:layout_constraintBottom_toTopOf="@+id/clButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pasPuanLayout">
-
-        <Button
-            android:id="@+id/btnStart"
-            android:layout_width="120dp"
-            android:layout_height="75dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="25dp"
-            android:background="@drawable/giris_button"
-            android:text="@string/startFixedText"
-            android:textSize="22sp" />
+        app:layout_constraintTop_toBottomOf="@+id/cvInformation">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -303,130 +275,177 @@
                 android:typeface="serif" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/takim1BilgiLayout"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="3dp"
-            android:background="@drawable/linear_layout_custom"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
-            <TextView
-                android:id="@+id/tvTeamName1"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                tools:text="TakimAdi1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvTeamScore1"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                tools:text="TakimPuani1" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tvTeamName1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    tools:text="TakimAdi1" />
 
-        <LinearLayout
-            android:id="@+id/takim2BilgiLayout"
+                <TextView
+                    android:id="@+id/tvTeamScore1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    tools:text="TakimPuani1" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="3dp"
-            android:background="@drawable/linear_layout_custom"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
-            <TextView
-                android:id="@+id/tvTeamName2"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                tools:text="TakimAdi2" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvTeamScore2"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                tools:text="TakimPuani2" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tvTeamName2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    tools:text="TakimAdi2" />
 
-        <LinearLayout
-            android:id="@+id/takim3BilgiLayout"
+                <TextView
+                    android:id="@+id/tvTeamScore2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    tools:text="TakimPuani2" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="3dp"
-            android:background="@drawable/linear_layout_custom"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
-            <TextView
-                android:id="@+id/tvTeamName3"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                tools:text="TakimAdi3" />
+            <LinearLayout
+                android:id="@+id/llTeam3Info"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvTeamScore3"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                tools:text="TakimPuan3" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tvTeamName3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    tools:text="TakimAdi3" />
 
-        <LinearLayout
-            android:id="@+id/takim4BilgiLayout"
+                <TextView
+                    android:id="@+id/tvTeamScore3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    tools:text="TakimPuan3" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="3dp"
-            android:background="@drawable/linear_layout_custom"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
-            <TextView
-                android:id="@+id/tvTeamName4"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                tools:text="TakimAdi4" />
+            <LinearLayout
+                android:id="@+id/llTeam4Info"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvTeamScore4"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                tools:text="TakimPuani4" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tvTeamName4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    tools:text="TakimAdi4" />
+
+                <TextView
+                    android:id="@+id/tvTeamScore4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    tools:text="TakimPuani4" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tvWinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
             android:gravity="center"
             android:textColor="@android:color/black"
             android:textSize="25sp"
             tools:text="Winner" />
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_start"
+            android:fontFamily="casual"
+            android:text="@string/startFixedText2"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

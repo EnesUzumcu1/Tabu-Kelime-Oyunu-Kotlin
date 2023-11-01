@@ -4,14 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.enesuzumcu.tabu.R
 import com.enesuzumcu.tabu.databinding.FragmentHomeBinding
 import com.enesuzumcu.tabu.ui.home.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -24,7 +30,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater,container,false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -33,6 +39,27 @@ class HomeFragment : Fragment() {
         navController = findNavController()
         binding.btnStart.setOnClickListener { navController.navigate(R.id.action_homeFragment_to_setTeamNameFragment) }
         binding.btnSettings.setOnClickListener { navController.navigate(R.id.action_homeFragment_to_settingsFragment) }
-        val viewModel : HomeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        val viewModel: HomeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+    }
+
+    private fun fadeEffect(): Job {
+        return lifecycleScope.launch {
+            while (isActive) {
+                binding.btnStart.animation = AnimationUtils.loadAnimation(context, R.anim.fade_in)
+                delay(1000)
+                binding.btnStart.animation = AnimationUtils.loadAnimation(context, R.anim.fade_out)
+                delay(1000)
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        fadeEffect().start()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        fadeEffect().cancel()
     }
 }

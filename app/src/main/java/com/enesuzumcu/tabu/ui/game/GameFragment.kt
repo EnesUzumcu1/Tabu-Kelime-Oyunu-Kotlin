@@ -46,30 +46,29 @@ class GameFragment : Fragment() {
         if (viewModel.turn > viewModel.maxTurn) {
             binding.btnStart.setOnClickListener { navigateHomeFragment() }
             binding.btnStart.setText(R.string.gameOver)
-            binding.pasPuanLayout.visibility = View.GONE
-            binding.takimSaniyeLayout.visibility = View.GONE
+            binding.cvInformation.visibility = View.GONE
             binding.tvWinner.text = viewModel.winner()
         } else {
             binding.btnStart.setOnClickListener {
                 kelimeleriYazdir()
                 binding.llResult.visibility = View.GONE
-                binding.pasPuanLayout.visibility = View.VISIBLE
-                binding.takimSaniyeLayout.visibility = View.VISIBLE
-                binding.pasHakkiTextView.text = viewModel.gameStatus!!.pass.toString()
-                binding.puanTextView.text = viewModel.gameStatus!!.score.toString()
-                binding.takimAdiYazTextView.text = viewModel.getTeamName()
-                binding.llWords.visibility = View.VISIBLE
-                binding.llButtons.visibility = View.VISIBLE
+                binding.cvInformation.visibility = View.VISIBLE
+                binding.pasHakkiTextView.text = viewModel.gameStatus!!.pass.toString() + "/" + Settings.settings!!.pass
+                binding.tvScore.text = "Puan: " + viewModel.gameStatus!!.score.toString()
+                binding.tvTeamName.text = viewModel.getTeamName()
+                binding.cvWords.visibility = View.VISIBLE
+                binding.clButtons.visibility = View.VISIBLE
                 binding.btnSuccess.isEnabled = true
                 binding.btnTaboo.isEnabled = true
                 binding.btnPass.isEnabled = true
+                binding.pbSecond.max = viewModel.second
                 timer()
             }
         }
         binding.btnPass.setOnClickListener {
             if (viewModel.gameStatus!!.pass > 0) {
                 viewModel.decreasePass()
-                binding.pasHakkiTextView.text = viewModel.gameStatus!!.pass.toString()
+                binding.pasHakkiTextView.text = viewModel.gameStatus!!.pass.toString()  + "/" + Settings.settings!!.pass
                 viewModel.getWords()
                 kelimeleriYazdir()
             }
@@ -77,19 +76,17 @@ class GameFragment : Fragment() {
 
         binding.btnTaboo.setOnClickListener {
             viewModel.decreaseScore()
-            binding.puanTextView.text = viewModel.gameStatus!!.score.toString()
+            binding.tvScore.text = "Puan: " + viewModel.gameStatus!!.score.toString()
             viewModel.getWords()
             kelimeleriYazdir()
         }
 
         binding.btnSuccess.setOnClickListener {
             viewModel.increaseScore()
-            binding.puanTextView.text = viewModel.gameStatus!!.score.toString()
+            binding.tvScore.text = "Puan: " + viewModel.gameStatus!!.score.toString()
             viewModel.getWords()
             kelimeleriYazdir()
         }
-
-        //backpress basildiginda gerekli durum icin callback cagirildi
 
         //backpress basildiginda gerekli durum icin callback cagirildi
         requireActivity().onBackPressedDispatcher.addCallback(
@@ -123,22 +120,23 @@ class GameFragment : Fragment() {
         mCountDownTimer = object : CountDownTimer(viewModel.second * 1000L + 100, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 if (viewModel.second > 0) {
-                    binding.saniyeTxtView.text = viewModel.second.toString()
+                    binding.tvSecond.text = viewModel.second.toString()
+                    binding.pbSecond.progress = viewModel.second
                     viewModel.decreaseSecond()
                 }
             }
 
             override fun onFinish() {
-                binding.saniyeTxtView.text = viewModel.second.toString()
+                binding.tvSecond.text = viewModel.second.toString()
                 binding.llResult.visibility = View.VISIBLE
-                binding.llWords.visibility = View.GONE
-                binding.llButtons.visibility = View.GONE
+                binding.cvWords.visibility = View.GONE
+                binding.clButtons.visibility = View.GONE
+                binding.pbSecond.progress = 0
                 getTeamScoreTV()?.text = viewModel.updateScore().toString()
                 if (viewModel.turn == viewModel.maxTurn) {
                     binding.btnStart.setOnClickListener { navigateHomeFragment() }
                     binding.btnStart.setText(R.string.gameOver)
-                    binding.pasPuanLayout.visibility = View.GONE
-                    binding.takimSaniyeLayout.visibility = View.GONE
+                    binding.cvInformation.visibility = View.GONE
                     binding.tvWinner.text = viewModel.winner()
                 } else {
                     binding.btnSuccess.isEnabled = false
@@ -154,39 +152,46 @@ class GameFragment : Fragment() {
 
     private fun tanimlamalar() {
         navController = findNavController()
-        binding.pasHakkiTextView.text = viewModel.gameStatus!!.pass.toString()
-        binding.saniyeTxtView.text = viewModel.second.toString()
-        binding.puanTextView.text = viewModel.gameStatus!!.score.toString()
+        binding.pasHakkiTextView.text = viewModel.gameStatus!!.pass.toString()  + "/" + Settings.settings!!.pass
+        binding.tvSecond.text = viewModel.second.toString()
+        binding.tvScore.text = "Puan: " + viewModel.gameStatus!!.score.toString()
         if (viewModel.inTheGame) {
-            binding.llWords.visibility = View.VISIBLE
-            binding.llButtons.visibility = View.VISIBLE
+            binding.cvWords.visibility = View.VISIBLE
+            binding.clButtons.visibility = View.VISIBLE
             binding.llResult.visibility = View.GONE
         } else {
-            binding.llButtons.visibility = View.GONE
+            binding.clButtons.visibility = View.GONE
         }
         //takım sayısına göre oyun arasında skor tablosunu hazırlıyor
         binding.tvTeamName1.text = Teams.team1?.teamName
         binding.tvTeamName2.text = Teams.team2?.teamName
         binding.tvTeamScore1.text = "${Teams.team1?.teamScore}"
         binding.tvTeamScore2.text = "${Teams.team2?.teamScore}"
-        binding.takim3BilgiLayout.visibility = View.GONE
-        binding.takim4BilgiLayout.visibility = View.GONE
+        binding.llTeam3Info.visibility = View.GONE
+        binding.llTeam4Info.visibility = View.GONE
         if (Settings.settings!!.teamCount >= 3) {
             binding.tvTeamName3.text = Teams.team3?.teamName
             binding.tvTeamScore3.text = "${Teams.team3?.teamScore}"
-            binding.takim3BilgiLayout.visibility = View.VISIBLE
+            binding.llTeam3Info.visibility = View.VISIBLE
         }
         if (Settings.settings!!.teamCount == 4) {
             binding.tvTeamName4.text = Teams.team4?.teamName
             binding.tvTeamScore4.text = "${Teams.team4?.teamScore}"
-            binding.takim4BilgiLayout.visibility = View.VISIBLE
+            binding.llTeam4Info.visibility = View.VISIBLE
         }
         //Skor tablosu hazırlıgı sonu
-        binding.takimAdiYazTextView.text = viewModel.getTeamName()
+        binding.tvTeamName.text = viewModel.getTeamName()
     }
 
     private fun navigateHomeFragment() {
-        val options: NavOptions = NavOptions.Builder().setPopUpTo(R.id.nav_graph, true).build()
+        val options: NavOptions =
+            NavOptions.Builder()
+                .setEnterAnim(R.anim.slide_from_left)
+                .setExitAnim(R.anim.slide_to_right)
+                .setPopEnterAnim(R.anim.slide_from_left)
+                .setPopExitAnim(R.anim.slide_to_right)
+                .setPopUpTo(R.id.nav_graph, true)
+                .build()
         navController.navigate(R.id.action_gameFragment_to_homeFragment, null, options)
         viewModel.resetState()
     }

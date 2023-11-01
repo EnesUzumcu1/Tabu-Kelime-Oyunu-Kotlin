@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.enesuzumcu.tabu.R
 import com.enesuzumcu.tabu.data.model.Game
@@ -48,6 +50,20 @@ class SettingsFragment : Fragment() {
             Toast.makeText(requireContext(), "Kaydedildi.", Toast.LENGTH_SHORT).show()
             navController.navigate(R.id.action_settingsFragment_to_setTeamNameFragment)
         }
+
+        binding.toolbar.title.text = getString(R.string.settingsFixedText)
+
+        binding.toolbar.ivBackArrow.setOnClickListener {
+            backPressNavigate()
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    backPressNavigate()
+                }
+            })
     }
 
     private fun tanimlamalar(){
@@ -56,6 +72,20 @@ class SettingsFragment : Fragment() {
         setTimeSpinnerAdapter()
         setRoundNumberSpinnerAdapter()
         setPassNumberSpinnerAdapter()
+    }
+
+    private fun backPressNavigate(){
+        // Handle the back button event
+        val options: NavOptions =
+            NavOptions.Builder()
+                .setEnterAnim(R.anim.slide_from_left)
+                .setExitAnim(R.anim.slide_to_right)
+                .setPopEnterAnim(R.anim.slide_from_left)
+                .setPopExitAnim(R.anim.slide_to_right)
+                .setPopUpTo(R.id.nav_graph, true)
+                .build()
+
+        navController.navigate(R.id.action_settingsFragment_to_homeFragment,null,options)
     }
 
     private fun setTeamNumberSpinnerAdapter() {

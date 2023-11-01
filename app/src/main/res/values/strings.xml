@@ -12,20 +12,17 @@
     <string name="team2NameFixedText">2. Takım Adı</string>
     <string name="team3NameFixedText">3. Takım Adı</string>
     <string name="team4NameFixedText">4. Takım Adı</string>
-    <string name="setTeamNameFixedText">TAKIM ADI BELİRLE</string>
+    <string name="setTeamNameFixedText">Takım Adı Belirle</string>
     <string name="save">KAYDET</string>
-    <string name="settingsFixedText">AYARLAR</string>
+    <string name="settingsFixedText">Ayarlar</string>
     <string name="teamsNumberFixedText">Takım Sayısı</string>
     <string name="timeFixedText">Süre</string>
     <string name="roundNumberFixedText">Tur Sayısı</string>
     <string name="passNumberFixedText">Pas Sayısı</string>
-    <string name="startFixedText">BAŞLA</string>
+    <string name="startFixedText">Başlamak\nİçin Tıkla</string>
+    <string name="startFixedText2">Başla</string>
     <string name="scoreFixedText">PUAN</string>
-    <string name="successFixedText">DOĞRU</string>
-    <string name="remainingPassFixedText">KALAN PAS</string>
-    <string name="tabooFixedText">TABU</string>
     <string name="teamsNameFixedText">TAKIM ADI</string>
-    <string name="passFixedText">PAS</string>
     <string name="gameOver">Oyun Bitti</string>
     <string name="nextTeam">Sonraki Takım</string>
 </resources>

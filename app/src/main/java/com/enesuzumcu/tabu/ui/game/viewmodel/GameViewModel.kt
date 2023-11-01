@@ -180,7 +180,6 @@ class GameViewModel @Inject constructor(private val repository: DatabaseReposito
             randomNumber = _random.nextInt(length + 1)
             if (!randomNumbers.contains(randomNumber)) {
                 randomNumbers.add(randomNumber)
-                loopControl = false
                 break
             }
         }
